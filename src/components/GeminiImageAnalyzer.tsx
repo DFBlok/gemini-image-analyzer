@@ -132,8 +132,8 @@ const GeminiImageAnalyzer = () => {
         const openModal = (type:string) =>{
           const contentMap: {[key: string]: string} ={
             how: "📸 Upload or take a photo → 🔍 Gemini analyzes it → 🔊 Read or listen to the result.",
-            feedback: "💬 We'd love your feedback! Send it to: feedback@example.com",
-            new : "🆕 What's New:\n- Added speech controls\n- Improved image analysis speed",
+            feedback: "💬 We'd love your feedback! Send it to: duwayneblok01@gmail.com",
+            new : "🆕 What's New:\n- Added speech controls\n- Improved image analysis speed\n- Image Preview",
             about: "ℹ️ Gemini Image Analyzer v1.0\nBuilt with React + Google Gemini API"
           };
           setModalContent(contentMap[type]);
