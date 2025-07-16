@@ -14,10 +14,15 @@ const GeminiImageAnalyzer = () => {
   const uploadInputRef = useRef<HTMLInputElement | null>(null);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
+  // peview image
+  const [image, setImage] = useState<File | null>(null);
+
+
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    setImage(file); /// <--- store the image file
     setLoading(true);
     setResult(null);
     setError(null);
@@ -201,7 +206,18 @@ const GeminiImageAnalyzer = () => {
             📸 Take Photo
         </button>
 
-      {/* <input type="file" accept="image/*" onChange={handleImageUpload} /> */}
+      {/* PREVIEW SECTION*/}
+      {image && (
+        <div style={{ marginTop: '1rem' }}>
+        <h4>Preview</h4>
+          <img
+            src={URL.createObjectURL(image)}
+            alt="Uploaded"
+            style={{ maxWidth: '100%', borderRadius: '8px' }}
+        />
+      </div>
+)}
+      
 
       {loading && <p>🔍 Analyzing image with Gemini...</p>}
       {error && <p style={{ color: 'red' }}>❌ {error}</p>}
